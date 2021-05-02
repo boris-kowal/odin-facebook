@@ -1,0 +1,6 @@
+<h1>User profile</h1>
+<%= @user.name %><br>
+<%= @user.email %><br>
+<% @user.posts.each do |post| %>
+  <%= link_to post.title, post %><br>
+<% end %>
