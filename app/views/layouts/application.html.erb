@@ -13,6 +13,11 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= current_user.name %><br>
+    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Sign in", new_user_session_path %>
+    <%= link_to "Sign out", destroy_user_session_path %>
+    <%= link_to "Main page", root_path %><br>
     <%= yield %>
   </body>
 </html>
