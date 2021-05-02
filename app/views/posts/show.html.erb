@@ -10,3 +10,6 @@ Comments:<br>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
 <% end %>
+<br>
+Number of likes: <%= @post.likes.count %><br>
+<%= link_to "LIKE", post_likes_path(post_id: @post.id), method: "post" %>
