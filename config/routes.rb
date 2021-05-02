@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts, only: [:new, :create, :index, :show, :update, :edit]
-  resources :comments, only: [:new, :create, :index, :update, :edit]
-  
+  resources :posts do 
+    resources :comments
+  end
 
   devise_for :users
   resources :users, only: [:show]
