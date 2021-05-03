@@ -21,6 +21,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find_by_id(params[:id])
     @notification.destroy
+    redirect_to root_path
   end
 
   private

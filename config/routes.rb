@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :notifications, only: [:create, :index, :destroy]
+  resources :notifications
   root 'posts#index'
 
   resources :posts do 
