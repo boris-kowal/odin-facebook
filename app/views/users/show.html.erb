@@ -4,3 +4,11 @@
 <% @user.posts.each do |post| %>
   <%= link_to post.title, post %><br>
 <% end %>
+
+Invite friends:<br>
+<% @users.each do |user| %>
+  <% unless user == current_user %>
+    <%= user.name %>
+    <%= button_to "invite friend", notifications_path, params: { notification_text: "#{current_user.name} would like to invite you", user_id: user.id }, method: "post" %>
+  <% end %>
+<% end %>

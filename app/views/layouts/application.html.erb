@@ -21,5 +21,10 @@
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <%= link_to "Main page", root_path %><br>
     <%= yield %>
+    <% unless current_user.nil?%>
+      <% @notifications.each do |notification| %>
+        <%= notification.notification_text %>
+      <% end %>
+    <% end %>
   </body>
 </html>
