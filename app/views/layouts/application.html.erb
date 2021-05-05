@@ -24,7 +24,7 @@
     <% unless current_user.nil?%>
       <% @notifications.each do |notif| %>
         <%= notif.notification_text %>
-        <%= button_to "Accept"%>
+        <%= button_to "Accept", friendships_create_path, params: { user_id: current_user.id, friend_id: notif.friend_id, notification: notif }, method: "get" %>
         <%= button_to "Reject", notification_path(notif), method: :delete %>
       <% end %>
     <% end %>

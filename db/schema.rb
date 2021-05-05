@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_112912) do
+ActiveRecord::Schema.define(version: 2021_05_04_044426) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
     t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_112912) do
     t.string "notification_text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "friend_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 

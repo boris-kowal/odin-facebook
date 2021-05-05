@@ -26,6 +26,6 @@ class NotificationsController < ApplicationController
 
   private
   def notification_params
-    params.permit(:notification_text, :user_id)
+    params.permit(:notification_text, :user_id, :friend_id)
   end
 end
