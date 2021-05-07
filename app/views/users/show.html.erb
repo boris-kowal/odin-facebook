@@ -1,23 +1,44 @@
 <h1>User profile</h1>
-Name: <%= @user.name %><br>
-Email: <%= @user.email %><br>
-Posts:
-<% @user.posts.each do |post| %>
-  <%= link_to post.title, post %><br>
-<% end %>
-<br>
-
-Friends:<br>
-<% @user.friends.each do |friend| %>
-  <%= link_to friend.name, user_path(friend) %><br>
-<% end %>
-<% if @user == current_user %>
-  <%= "Invite friends:" %><br>
-  <% @users.each do |user| %>
-    <% unless user == current_user || current_user.friends.include?(user) %>
-      <%= link_to user.name, user_path(user) %>
-      <%= button_to "invite friend", notifications_path, params: { notification_text: "#{current_user.name} would like to invite you", user_id: user.id, friend_id: current_user.id }, method: "post" %>
+<div class="details">
+  <p class="details_element">Name: <%= @user.name %></p>
+  <p class="details_element">Email: <%= @user.email %></p>
+</div>
+<ul class="user_posts">
+  Posts:
+  <% if @user.posts.empty? %>
+    <%= "No post to display"%>
+  <% else %>
+    <% @user.posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
     <% end %>
   <% end %>
-<% end %>
+</ul>
+<br>
+<div class="friends_list">
+  <ul>
+    Friends:
+    <% @user.friends.each do |friend| %>
+      <li>
+        <%= link_to friend.name, user_path(friend) %>
+      </li>
+    <% end %>
+  </ul>
+  <% if @user == current_user %>
+    <ul>
+      <%= "Invite friends:" %><br>
+      <% @users.each do |user| %>
+        <% unless user == current_user || current_user.friends.include?(user) %>
+          <div class="invite">
+            <li>
+              <%= link_to user.name, user_path(user), class:"link_profile" %>
+            </li>
+              <%= button_to "invite friend", notifications_path, params: { notification_text: "#{current_user.name} would like to invite you", user_id: user.id, friend_id: current_user.id }, method: "post", class:"link_profile" %>
+          </div>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 

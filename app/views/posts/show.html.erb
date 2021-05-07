@@ -1,15 +1,25 @@
-Title: <%= @post.title %><br>
-Body: <%= @post.body %><br>
-Comments:<br>
-<% @post.comments.each do |comment| %>
-  Commenter name: <%= comment.user.name %><br>
-  <%= comment.body %><br>
-<% end %>
-<%= simple_form_for [@post, @post.comments.build] do |f| %>
-  <%= f.input :body, label: 'Comment text: ' %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.submit %>
-<% end %>
-<br>
-Number of likes: <%= @post.likes.count %><br>
-<%= link_to "LIKE", post_likes_path(post_id: @post.id), method: "post" %>
+<div class="post_frame">
+  <div class="post">
+    <h3><%= @post.title %>, Author:<%= @post.user.name %></h3>
+    <p><%= @post.body %><br></p>
+  </div>
+  <div class="comments">
+    <div class="comment_text">
+      <% @post.comments.each do |comment| %>
+        Commenter name: <%= comment.user.name %><br>
+        <%= comment.body %><br>
+      <% end %>
+    </div>
+    <div class="new_comment">
+      <%= simple_form_for [@post, @post.comments.build] do |f| %>
+        <%= f.label :body, 'Enter your comment' %>
+        <%= f.input :body, class:"input_comment", style: 'display: block;', label: false %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  Number of likes: <%= @post.likes.count %><br>
+  <%= link_to "LIKE", post_likes_path(post_id: @post.id), method: "post" %>
+</div>

@@ -1,3 +1,39 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.new_post_button {
+  background-color: orange;
+  padding: 0.3em;
+  font-size: large;
+  display:flex;
+  width: 15%;
+  justify-content: center;
+  margin: 1em;
+  border-radius: 10%;
+}
+
+.post_frame {
+  background-color: palegoldenrod;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center
+}
+
+.input_comment {
+  display: block;
+}
+
+.post {
+  background-color: lightskyblue;
+  padding: 0.3em;
+  width: 70%;
+  margin: auto;
+  padding: 1em;
+}
+
+.new_comment {
+  border-top: black;
+  border-style: solid;
+  border-width: 0.1px;
+}

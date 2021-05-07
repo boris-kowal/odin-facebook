@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+  body, html {
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+
+.navbar { 
+  background: #cceeff;
+  display: flex;
+  margin: 0;
+  margin-top: -15px;
+  justify-content: space-between;
+}
+
+.profile_root {
+  display:flex;
+  padding: 0.5em;
+}
+.profile {
+  margin: 0.5em;
+}
+.root {
+  margin: 0.5em;
+}
+
+.devise {
+  display: flex;
+  padding: 0.5em;
+}
+
+.devise_link {
+  margin: 0.5em;
+}
+.notification {
+  display: block;
+  position: absolute;
+  right: 0%;
+}

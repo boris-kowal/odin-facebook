@@ -1,9 +1,15 @@
-<%= link_to "Create new post", new_post_path %>
-<h1>Posts#index</h1>
-<% @posts.each do |post| %>
-  <% if post.user == current_user || current_user.friends.include?(post.user) %>
-    <%= link_to post.title, post %>
-  <% else %>
-    <% next %>
+<div class="new_post_button">
+  <%= link_to "Create new post", new_post_path %>
+</div>
+<h1>Posts feed</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <% if post.user == current_user || current_user.friends.include?(post.user) %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
+    <% else %>
+      <% next %>
+    <% end %>
   <% end %>
-<% end %>
+</ul>

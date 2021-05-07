@@ -11,22 +11,36 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%  unless current_user.nil? %>
-      <%= link_to "#{current_user.name} profile", user_path(current_user.id) %><br>
-    <% end %>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <%= link_to "Main page", root_path %><br>
-    <%= yield %>
-    <% unless current_user.nil?%>
-      <% @notifications.each do |notif| %>
-        <%= notif.notification_text %>
-        <%= button_to "Accept", friendships_create_path, params: { user_id: current_user.id, friend_id: notif.friend_id, notification: notif }, method: "get" %>
-        <%= button_to "Reject", notification_path(notif), method: :delete %>
-      <% end %>
-    <% end %>
+    <div class="flash_messages">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <div class="navbar">
+      <div class="profile_root">
+        <%  unless current_user.nil? %>
+          <%= link_to "#{current_user.name} profile", user_path(current_user.id), class:"profile" %>
+        <% end %>
+        <%= link_to "Main page", root_path, class:"root" %>
+      </div>
+      <div class="devise">
+        <%= link_to "Sign up", new_user_registration_path, class:"devise_link" %>
+        <%= link_to "Sign in", new_user_session_path, class:"devise_link" %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"devise_link" %>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="yield">
+        <%= yield %>
+      </div>
+      <div class="notifications">
+        <% unless current_user.nil?%>
+          <% @notifications.each do |notif| %>
+            <%= notif.notification_text %>
+            <%= button_to "Accept", friendships_create_path, params: { user_id: current_user.id, friend_id: notif.friend_id, notification: notif }, method: "get" %>
+            <%= button_to "Reject", notification_path(notif), method: :delete %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

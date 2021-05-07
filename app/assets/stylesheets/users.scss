@@ -1,3 +1,34 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.details {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  border-style: solid;
+  margin: 5%;
+}
+
+.details_element {
+  margin: 0.5em;
+}
+
+.friends_list {
+  border-style: solid;
+  margin: 5%;
+}
+
+.user_posts {
+  border-style: solid;
+  margin: 5%;
+  padding: 1em;
+}
+
+.invite {
+  display:flex;
+  align-items: center;
+}
+
+.link_profile {
+  margin: 1em;
+}
