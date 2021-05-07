@@ -22,7 +22,10 @@ gem 'devise', '~> 4.8'
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'simple_form', '~> 5.1'
-
+gem 'omniauth-facebook'
+gem 'activerecord-session_store'
+gem 'figaro'
+gem "omniauth-rails_csrf_protection"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
