@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :friendships
   has_many :friends, through: :friendships
+  has_one_attached :avatar
 end

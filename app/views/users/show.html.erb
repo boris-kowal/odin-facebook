@@ -1,4 +1,13 @@
 <h1>User profile</h1>
+<%= link_to "Edit profile", edit_user_registration_path %>
+<div>
+  <% if @user.avatar.attached? %>
+    <img src="<%=(url_for(@user.avatar))%>" class="avatar">
+  <% else %>
+    <%= image_tag ("index.jpg"), class:"avatar"%>
+  <% end %>
+</div>
+
 <div class="details">
   <p class="details_element">Name: <%= @user.name %></p>
   <p class="details_element">Email: <%= @user.email %></p>
